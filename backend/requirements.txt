@@ -1,0 +1,8 @@
+FastAPI
+uvicorn
+pydantic
+aio_pika
+requests
+python-dotenv
+pytest
+pytest-asyncio

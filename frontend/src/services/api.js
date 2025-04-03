@@ -18,7 +18,16 @@ export const getExampleData = async () => {
         throw error;
     }
 };
-
+export const fetchExampleData = async () => {
+    // Здесь логика запроса данных (например, с использованием axios)
+    try {
+      const response = await axios.get('ВАШ_API_ЭНДПОИНТ');
+      return response.data;
+    } catch (error) {
+      console.error('Ошибка при получении данных:', error);
+      throw error;
+    }
+  };
 // Пример функции для отправки данных
 export const postExampleData = async (data) => {
     try {

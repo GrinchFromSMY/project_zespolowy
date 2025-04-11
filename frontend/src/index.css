@@ -100,61 +100,103 @@
   }
   
   /* Стилі для картки фільму */
-  .movie-card {
-    position: relative;
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  }
-  
-  .movie-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .movie-card img {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-  }
-  
-  .movie-card-info {
-    padding: 10px;
-  }
-  
-  .movie-card-info h3 {
-    margin: 10px 0 5px;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  
-  /* Стилі для сторінки з деталями фільму */
-  .movie-details {
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .movie-details img {
-    max-width: 300px;
-    border-radius: 8px;
-    flex-shrink: 0;
-  }
-  
-  .movie-details-content {
-    max-width: 600px;
-  }
-  
-  .movie-details-content h1 {
-    margin-bottom: 10px;
-  }
-  
-  .movie-details-content p {
-    margin-bottom: 10px;
-  }
+.movie-card {
+  position: relative;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-card img {
+  width: 100%;
+  display: block;
+  object-fit: cover; /* Сохраняет пропорции изображения */
+  height: auto; /* Автоматическая высота */
+  border-radius: 8px 8px 0 0; /* Скругляет только верхние углы */
+}
+
+.movie-card-info {
+  padding: 10px;
+}
+
+.movie-card-info h3 {
+  margin: 10px 0 5px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Стилі для сторінки з деталями фільму */
+.movie-details {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.movie-details img {
+  max-width: 300px;
+  object-fit: contain; /* Зберігає пропорції зображення */
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.movie-details-content {
+  max-width: 600px;
+}
+
+.movie-details-content h1 {
+  margin-bottom: 10px;
+}
+
+.movie-details-content p {
+  margin-bottom: 10px;
+}
+
+.movie-actors {
+  width: 100%; /* Список актеров занимает всю ширину */
+  margin-top: 20px; /* Отступ сверху */
+}
+
+.movie-actors h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.movie-actors ul {
+  display: flex; /* Располагает актеров горизонтально */
+  flex-wrap: wrap; /* Переносит строки, если не хватает места */
+  gap: 20px; /* Расстояние между элементами */
+  list-style: none; /* Убирает маркеры списка */
+  padding: 0;
+  margin: 0;
+  justify-content: center; /* Центрирует список */
+}
+
+.movie-actors li {
+  text-align: center; /* Центрирует текст под изображением */
+  max-width: 120px; /* Ограничивает ширину каждого элемента */
+}
+
+.movie-actors li img {
+  width: 100%; /* Изображение занимает всю ширину контейнера */
+  height: auto; /* Сохраняет пропорции изображения */
+  border-radius: 50%; /* Делает изображение круглым */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Добавляет тень */
+}
+
+.movie-actors li p {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #fff;
+}
   
   /* Стилі футера */
   footer {

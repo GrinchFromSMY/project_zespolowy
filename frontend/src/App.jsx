@@ -10,8 +10,8 @@ const App = () => {
     <Router>
       <Header />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/movie/:id" component={MovieDetails} />
+      <Route exact path="/" component={HomePage} />
+      <Route path="/movies/:id" component={MovieDetails} />
       </Switch>
       <Footer />
     </Router>

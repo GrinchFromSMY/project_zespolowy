@@ -8,16 +8,16 @@ const Header = () => {
         <nav>
           <ul className="nav-menu">
             <li>
-              <Link to="/">Головна</Link>
+              <Link to="/">Strona główna</Link>
             </li>
             <li>
-              <Link to="/popular">Популярні</Link>
+              <Link to="/popular">Popularne</Link>
             </li>
             <li>
-              <Link to="/top-rated">Топ рейтингові</Link>
+              <Link to="/top-rated">Najwyżej oceniane</Link>
             </li>
             <li>
-              <Link to="/upcoming">Скоро</Link>
+              <Link to="/upcoming">Nadchodzące</Link>
             </li>
           </ul>
         </nav>

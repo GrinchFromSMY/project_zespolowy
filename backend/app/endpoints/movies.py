@@ -31,6 +31,28 @@ def create_movie(movie: schemas.MovieCreate, db: Session = Depends(get_db)):
 def read_movies(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     return db.query(models.Movie).offset(skip).limit(limit).all()
 
+
+
+
+# Маршрут для фильмов из таблицы "popular"
+@router.get("/movies/popular/", response_model=list[schemas.Movie])
+def read_popular_movies(skip: int = 0, limit: int = 50, db: Session = Depends(get_db)):
+    return db.query(models.Movie).offset(skip).limit(limit).all()
+
+# Маршрут для фильмов из таблицы "top_rated"
+@router.get("/movies/top-rated/", response_model=list[schemas.Movie])
+def read_top_rated_movies(skip: int = 0, limit: int = 50, db: Session = Depends(get_db)):
+    return db.query(models.TopRatedMovie).offset(skip).limit(limit).all()
+
+# Маршрут для фильмов из таблицы "now_playing"
+@router.get("/movies/now-playing/", response_model=list[schemas.Movie])
+def read_now_playing_movies(skip: int = 0, limit: int = 50, db: Session = Depends(get_db)):
+    return db.query(models.NowPlayingMovie).offset(skip).limit(limit).all()
+
+
+
+
+
 @router.get("/movies/{movie_id}", response_model=schemas.Movie)
 def get_movie_details(movie_id: int, db: Session = Depends(get_db)):
     movie = db.query(models.Movie).filter(models.Movie.id == movie_id).first()

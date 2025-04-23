@@ -17,7 +17,7 @@ const Header = () => {
               <Link to="/top-rated">Najwyżej oceniane</Link>
             </li>
             <li>
-              <Link to="/upcoming">Nadchodzące</Link>
+              <Link to="/now-playing">Obecnie w kinach</Link>
             </li>
           </ul>
         </nav>

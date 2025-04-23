@@ -28,7 +28,7 @@ def create_movie(movie: schemas.MovieCreate, db: Session = Depends(get_db)):
     return db_movie
 
 @router.get("/movies/", response_model=list[schemas.Movie])
-def read_movies(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+def read_movies(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return db.query(models.Movie).offset(skip).limit(limit).all()
 
 

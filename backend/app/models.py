@@ -1,7 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
+from .database import Base
 
 DATABASE_URL = "sqlite:///./movies.db"
 
@@ -39,3 +40,12 @@ class NowPlayingMovie(Base):
     image_url = Column(String, nullable=True)
     rating = Column(String, nullable=True)
     url_TMDB = Column(String, nullable=True)
+
+class User(Base):
+    __tablename__ = "users"
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, index=True, nullable=False) # Добавлено поле username
+    email = Column(String, unique=True, index=True, nullable=False)
+    hashed_password = Column(String, nullable=False)
+    is_active = Column(Boolean, default=True)

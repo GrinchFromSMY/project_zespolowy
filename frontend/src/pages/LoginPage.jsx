@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom'; // Импорт правильный
+import { useHistory } from 'react-router-dom'; // Poprawny import
 
-// Используем правильный URL твоего бэкенда
+// Używamy poprawnego URL twojego backendu
 const API_LOGIN_URL = 'http://127.0.0.1:9000/api/auth/token';
 
 function LoginPage() {
@@ -10,9 +10,9 @@ function LoginPage() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    // --- Исправляем имя переменной ---
+    // --- Poprawiamy nazwę zmiennej ---
     const history = useHistory();
-    // const { login } = useContext(AuthContext); // Закомментировано, пока нет контекста
+    // const { login } = useContext(AuthContext); // Zakomentowane, dopóki nie ma kontekstu
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -34,33 +34,33 @@ function LoginPage() {
 
             if (token) {
                 localStorage.setItem('accessToken', token);
-                console.log('Вход успешен, токен сохранен.');
-                // login(token); // Закомментировано
-                // --- Исправляем вызов навигации ---
-                history.push('/'); // Перенаправление на главную
+                console.log('Logowanie udane, token zapisany.');
+                // login(token); // Zakomentowane
+                // --- Poprawiamy wywołanie nawigacji ---
+                history.push('/'); // Przekierowanie na stronę główną
 
             } else {
-                throw new Error('Токен не получен от сервера');
+                throw new Error('Token nie został otrzymany z serwera');
             }
 
         } catch (err) {
-            console.error('Ошибка входа:', err);
-            const errorMessage = err.response?.data?.detail || err.message || 'Произошла ошибка при входе.';
+            console.error('Błąd logowania:', err);
+            const errorMessage = err.response?.data?.detail || err.message || 'Wystąpił błąd podczas logowania.';
             setError(errorMessage);
             localStorage.removeItem('accessToken');
-            // logout(); // Закомментировано
+            // logout(); // Zakomentowane
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        // --- JSX разметка остается без изменений ---
+        // --- Struktura JSX pozostaje bez zmian ---
         <div className="container auth-container" style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '5px' }}>
-            <h2>Вход</h2>
+            <h2>Logowanie</h2>
             <form onSubmit={handleSubmit}>
                 <div style={{ marginBottom: '15px' }}>
-                    <label htmlFor="loginUsername" style={{ display: 'block', marginBottom: '5px' }}>Имя пользователя или Email:</label>
+                    <label htmlFor="loginUsername" style={{ display: 'block', marginBottom: '5px' }}>Nazwa użytkownika lub Email:</label>
                     <input
                         type="text"
                         id="loginUsername"
@@ -72,7 +72,7 @@ function LoginPage() {
                     />
                 </div>
                 <div style={{ marginBottom: '15px' }}>
-                    <label htmlFor="loginPassword" style={{ display: 'block', marginBottom: '5px' }}>Пароль:</label>
+                    <label htmlFor="loginPassword" style={{ display: 'block', marginBottom: '5px' }}>Hasło:</label>
                     <input
                         type="password"
                         id="loginPassword"
@@ -89,11 +89,11 @@ function LoginPage() {
                     disabled={loading}
                      style={{ width: '100%', padding: '10px', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '3px', cursor: 'pointer' }}
                 >
-                    {loading ? 'Вход...' : 'Войти'}
+                    {loading ? 'Logowanie...' : 'Zaloguj się'}
                 </button>
             </form>
              <p style={{ textAlign: 'center', marginTop: '15px' }}>
-                Нет аккаунта? <a href="/register">Зарегистрироваться</a> {/* Замени на Link, если нужно */}
+                Nie masz konta? <a href="/register">Zarejestruj się</a> {/* Można zamienić na Link, jeśli potrzeba */}
             </p>
         </div>
     );

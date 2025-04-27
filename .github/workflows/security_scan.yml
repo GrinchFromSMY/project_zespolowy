@@ -4,9 +4,9 @@ name: Security Scan
 # Триггеры: запускать при пуше или PR в основные ветки
 on:
   push:
-    branches: [ main, master, develop ] # Укажите ваши основные ветки
+    branches: [ main, second-part-of-task-5, registration-and-search ] # Укажите ваши основные ветки
   pull_request:
-    branches: [ main, master, develop ] # Укажите ваши основные ветки
+    branches: [ main, second-part-of-task-5, registration-and-search ] # Укажите ваши основные ветки
 
 jobs:
   security_scan:

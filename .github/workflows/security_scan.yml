@@ -35,7 +35,7 @@ jobs:
     - name: Run Bandit (SAST)
       run: |
         # Замените ./app на путь к папке с вашим Python кодом (main.py, endpoints и т.д.)
-        bandit -r .backend/app -ll -ii --exit-zero-on-warn # Сканировать папку app, показывать средние/высокие уровни
+        bandit -r backend/app -ll -ii --exit-zero-on-warn # Сканировать папку app, показывать средние/высокие уровни
                                                     # --exit-zero-on-warn - не проваливать сборку из-за предупреждений bandit (можно убрать для строгости)
 
     # Шаг 5: Запуск Safety (проверка зависимостей)

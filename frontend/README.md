@@ -1,41 +1,41 @@
-# Документация по фронтенду
+# Frontend Documentation
 
-Этот проект представляет собой веб-приложение, разработанное с использованием React для фронтенда и Python с FastAPI для бэкенда. В этом файле описаны основные аспекты работы с фронтенд-частью приложения.
+This project is a web application developed using React for the frontend and Python with FastAPI for the backend. This file describes the main aspects of working with the frontend part of the application.
 
-## Структура проекта
+## Project Structure
 
-- `public/index.html`: Основной HTML файл, который загружает приложение React.
-- `src/components/`: Директория, содержащая компоненты React, которые могут быть использованы в различных страницах приложения.
-- `src/pages/`: Директория, содержащая страницы приложения, использующие компоненты для отображения контента.
-- `src/App.jsx`: Корневой компонент приложения, который определяет маршрутизацию и структуру приложения.
-- `src/index.js`: Точка входа для приложения, рендерит корневой компонент.
-- `src/services/api.js`: Функции для взаимодействия с REST API бэкенда.
+- `public/index.html`: The main HTML file that loads the React application.
+- `src/components/`: Directory containing React components that can be used across various pages of the application.
+- `src/pages/`: Directory containing application pages that use components to display content.
+- `src/App.jsx`: The root component of the application, which defines routing and the structure of the app.
+- `src/index.js`: The entry point for the application, rendering the root component.
+- `src/services/api.js`: Functions for interacting with the backend REST API.
 
-## Установка
+## Installation
 
-1. Клонируйте репозиторий:
+1. Clone the repository:
    ```
    git clone <URL>
    cd my-project/frontend
    ```
 
-2. Установите зависимости:
+2. Install dependencies:
    ```
    npm install
    ```
 
-## Запуск приложения
+## Running the Application
 
-Для запуска приложения используйте команду:
+To start the application, use the command:
 ```
 npm start
 ```
-Приложение будет доступно по адресу `http://localhost:3000`.
+The application will be available at `http://localhost:3000`.
 
-## Взаимодействие с бэкендом
+## Interaction with the Backend
 
-Фронтенд взаимодействует с бэкендом через REST API. Убедитесь, что бэкенд запущен и доступен по указанному адресу.
+The frontend interacts with the backend via the REST API. Ensure the backend is running and accessible at the specified address.
 
-## Лицензия
+## License
 
-Этот проект лицензирован под MIT License.
+This project is licensed under the MIT License.

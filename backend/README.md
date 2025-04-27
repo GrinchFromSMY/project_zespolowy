@@ -1,52 +1,52 @@
-# Документация для бэкенда
+# Backend Documentation
 
-Этот проект представляет собой веб-приложение, использующее FastAPI для создания REST API и RabbitMQ для обработки сообщений. 
+This project is a web application that uses FastAPI to create a REST API and RabbitMQ for message handling.
 
-## Структура проекта
+## Project Structure
 
-- **app/**: Основная директория приложения.
-  - **main.py**: Запускает сервер и настраивает маршруты для REST API.
-  - **api/**: Содержит версии API и их конечные точки.
-    - **v1/**: Первая версия API.
-      - **endpoints/**: Определения маршрутов и обработчиков.
-        - **example.py**: Пример маршрутов API.
-  - **core/**: Конфигурация приложения.
-    - **config.py**: Настройки подключения к RabbitMQ и другие параметры.
-  - **models/**: Определения моделей данных.
-    - **example.py**: Пример модели данных.
-  - **schemas/**: Схемы для валидации данных.
-    - **example.py**: Пример схемы.
-  - **services/**: Сервисы для взаимодействия с внешними системами.
-    - **rabbitmq.py**: Функции для работы с RabbitMQ.
-  - **utils/**: Вспомогательные функции.
-    - **example.py**: Пример вспомогательной функции.
+- **app/**: The main application directory.
+  - **main.py**: Starts the server and configures routes for the REST API.
+  - **api/**: Contains API versions and their endpoints.
+    - **v1/**: The first version of the API.
+      - **endpoints/**: Definitions of routes and handlers.
+        - **example.py**: Example API routes.
+  - **core/**: Application configuration.
+    - **config.py**: RabbitMQ connection settings and other parameters.
+  - **models/**: Data model definitions.
+    - **example.py**: Example data model.
+  - **schemas/**: Schemas for data validation.
+    - **example.py**: Example schema.
+  - **services/**: Services for interacting with external systems.
+    - **rabbitmq.py**: Functions for working with RabbitMQ.
+  - **utils/**: Utility functions.
+    - **example.py**: Example utility function.
 
-## Установка
+## Installation
 
-1. Клонируйте репозиторий:
+1. Clone the repository:
    ```
    git clone <URL>
    cd my-project/backend
    ```
 
-2. Установите зависимости:
+2. Install dependencies:
    ```
    pip install -r requirements.txt
    ```
 
-3. Запустите приложение:
+3. Start the application:
    ```
    uvicorn app.main:app --reload
    ```
 
-## Использование RabbitMQ
+## Using RabbitMQ
 
-Для работы с RabbitMQ убедитесь, что он установлен и запущен. Настройки подключения можно найти в `app/core/config.py`.
+To work with RabbitMQ, ensure it is installed and running. Connection settings can be found in `app/core/config.py`.
 
-## Контейнеризация
+## Containerization
 
-Проект можно запустить в Docker. Для этого используйте файл `Dockerfile` и `docker-compose.yml` в корне проекта.
+The project can be run in Docker. Use the `Dockerfile` and `docker-compose.yml` files located in the root of the project.
 
-## Лицензия
+## License
 
-Этот проект лицензирован под MIT License.
+This project is licensed under the MIT License.

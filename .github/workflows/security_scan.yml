@@ -31,12 +31,11 @@ jobs:
         # Устанавливаем зависимости вашего проекта из requirements.txt
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    # Шаг 4: Запуск Bandit (проверка кода)
+      # Шаг 4: Запуск Bandit (проверка кода)
     - name: Run Bandit (SAST)
       run: |
-        # Замените ./app на путь к папке с вашим Python кодом (main.py, endpoints и т.д.)
-        bandit -r backend/app -ll -ii --exit-zero-on-warn # Сканировать папку app, показывать средние/высокие уровни
-                                                    # --exit-zero-on-warn - не проваливать сборку из-за предупреждений bandit (можно убрать для строгости)
+        # Убедитесь, что 'backend/app' - это правильный путь к вашему коду
+        bandit -r ./backend/app -ll -ii --exit-zero # Используем правильный флаг --exit-zero
 
     # Шаг 5: Запуск Safety (проверка зависимостей)
     - name: Run Safety (Dependency Check)

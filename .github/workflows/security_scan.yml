@@ -1,0 +1,52 @@
+# .github/workflows/security_scan.yml
+name: Security Scan
+
+# Триггеры: запускать при пуше или PR в основные ветки
+on:
+  push:
+    branches: [ main, master, develop ] # Укажите ваши основные ветки
+  pull_request:
+    branches: [ main, master, develop ] # Укажите ваши основные ветки
+
+jobs:
+  security_scan:
+    runs-on: ubuntu-latest # Использовать последнюю версию Ubuntu
+
+    steps:
+    # Шаг 1: Получение кода из репозитория
+    - name: Checkout code
+      uses: actions/checkout@v4 # Стандартное действие для скачивания кода
+
+    # Шаг 2: Настройка Python
+    - name: Set up Python
+      uses: actions/setup-python@v5 # Стандартное действие для настройки Python
+      with:
+        python-version: '3.11' # Укажите версию Python, которую вы используете
+
+    # Шаг 3: Установка зависимостей сканеров и проекта
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit safety # Устанавливаем сканеры
+        # Устанавливаем зависимости вашего проекта из requirements.txt
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    # Шаг 4: Запуск Bandit (проверка кода)
+    - name: Run Bandit (SAST)
+      run: |
+        # Замените ./app на путь к папке с вашим Python кодом (main.py, endpoints и т.д.)
+        bandit -r \backend -ll -ii --exit-zero-on-warn # Сканировать папку app, показывать средние/высокие уровни
+                                                    # --exit-zero-on-warn - не проваливать сборку из-за предупреждений bandit (можно убрать для строгости)
+
+    # Шаг 5: Запуск Safety (проверка зависимостей)
+    - name: Run Safety (Dependency Check)
+      run: |
+        # Убедитесь, что у вас есть актуальный requirements.txt
+        # Если его нет, можно сгенерировать: pip freeze > requirements.txt
+        if [ -f requirements.txt ]; then
+          safety check -r requirements.txt --full-report
+          # Добавьте --fail-on-vulnerability если хотите, чтобы сборка падала при нахождении уязвимостей
+        else
+          echo "requirements.txt not found, skipping Safety check."
+          # exit 1 # Можно завершить с ошибкой, если файл обязателен
+        fi
